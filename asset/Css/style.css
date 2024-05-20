@@ -1,0 +1,164 @@
+/* Agrega este código en tu archivo style.css */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna */
+  grid-template-rows: auto auto 1fr auto; /* Filas automáticas para el encabezado, la galería, el pie de página y otros */
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+}
+
+/* Estilos para el encabezado */
+.container-busqueda {
+  grid-area: header;
+
+  background-color: rgb(32, 163, 183);
+  width: 100vw;
+  height: 80px;
+  color: white;
+  text-align: center;
+}
+
+/* Estilos para el nav */
+.nav {
+  grid-area: nav;
+
+  background-color: rgb(32, 163, 183);
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+/* Estilos para la galería */
+.galeria {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Estilos para el pie de página */
+#scrollspyFooter {
+  grid-area: footer;
+
+  background-color: rgb(31, 31, 149);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  width: 100vw;
+  height: 150px;
+}
+.btn-contacto {
+  color: white !important;
+}
+
+.container-card {
+  margin: auto;
+  /* margin-top: 100px; */
+  /*perspective: 1000px;*/
+  display: flex;
+  justify-content: center;
+}
+.card-father {
+  margin: 20px;
+  /*perspective: 1000px;*/
+}
+.card-father:hover .card {
+  transform: rotateY(180deg);
+}
+.card {
+  width: 250px;
+  height: 350px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 600ms;
+}
+.card-front {
+  background-size: cover;
+  background-position: start;
+}
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  /*transform-style: preserve-3d;*/
+  border-radius: 20px;
+}
+.card-back {
+  transform: rotateY(180deg);
+  background: white;
+}
+.body-card-front {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  /*transform: translateZ(60px);*/
+} /*
+.bg {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+}*/
+.body-card-back {
+  padding: 40px;
+  text-align: center;
+  transform: translateZ(60px);
+  border-radius: 20px;
+}
+.body-card-back p {
+  margin-top: 30px;
+  font-size: 12px;
+}
+.body-card-back input {
+  padding: 10px 40px;
+  margin-top: 30px;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  background: #58b0f6;
+  box-shadow: 1px 1px 30px -5px #58b0f6;
+  border-radius: 20px;
+  transition: box-shadow 600ms;
+}
+.body-card-back input:hover {
+  box-shadow: 1px 1px 30px -5px #449de6;
+}
+
+@media only screen and (max-width: 700px) {
+  .card {
+    width: 180px;
+    height: 300px;
+  }
+  .galeria {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+
+  .body-card-back p {
+    font-size: 8px;
+  }
+  .body-card-back input {
+    font-size: 8px;
+  }
+  footer {
+    height: 150px !important;
+  }
+}
